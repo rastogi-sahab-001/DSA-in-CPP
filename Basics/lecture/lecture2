@@ -1,0 +1,184 @@
+# DSA IN C++
+
+# LECTURE 02 – VARIABLES AND OPERATORS
+
+---
+
+## 7. Arithmetic Operators
+
+**Definition:**
+
+Arithmetic operators are used to perform mathematical operations in C++.
+
+### Types of Arithmetic Operators
+
+| Operator | Name | Example | Result |
+|:---:|---|:---:|:---:|
+| `+` | Addition | 5 + 2 | 7 |
+| `-` | Subtraction | 5 - 2 | 3 |
+| `*` | Multiplication | 5 * 2 | 10 |
+| `/` | Division | 5 / 2 | 2 |
+| `%` | Modulus | 5 % 2 | 1 |
+
+---
+
+## 8. Integer Division
+
+**Definition:**
+
+When two integer values are divided, the decimal part is removed.
+
+### Example:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 5;
+    int b = 2;
+
+    cout << a / b;
+
+    return 0;
+}
+```
+
+### Output:
+
+```text
+2
+```
+
+**Important:**
+
+Integer division does not round the result. It removes the fractional part.
+
+For example:
+
+- 5 / 2 = 2
+- 7 / 2 = 3
+- 9 / 2 = 4
+
+---
+
+## 9. Double Division
+
+**Definition:**
+
+When at least one operand is a floating-point value, division can produce a decimal result.
+
+### Example:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double a = 5.0;
+    double b = 2.0;
+
+    cout << a / b;
+
+    return 0;
+}
+```
+
+### Output:
+
+```text
+2.5
+```
+
+**Important:**
+
+- Integer division gives an integer result.
+- Floating-point division can give a decimal result.
+
+---
+
+## 10. Area of Circle
+
+**Definition:**
+
+The area of a circle is the total space occupied inside the boundary of the circle.
+
+### Formula:
+
+Area = π × r × r
+
+**Where:**
+
+- π = 3.14
+- r = Radius
+- Area = Area of Circle
+
+### Example:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double radius, area;
+
+    cout << "Enter radius: ";
+    cin >> radius;
+
+    area = 3.14 * radius * radius;
+
+    cout << "Area = " << area;
+
+    return 0;
+}
+```
+
+### Output:
+
+```text
+Enter radius: 5
+Area = 78.5
+```
+
+---
+
+## 11. Variable Naming Rules
+
+**Definition:**
+
+Variable naming rules define how we can create variable names in C++.
+
+### Rules:
+
+1. Variables can start with an alphabet or underscore `_`.
+2. Special characters except underscore are not allowed.
+3. Blank spaces and commas are not allowed.
+4. Keywords cannot be used as variable names.
+
+### Examples:
+
+| Variable Name | Valid/Invalid |
+|---|---|
+| `totalMarks` | Valid |
+| `_counter` | Valid |
+| `2ndPlayer` | Invalid |
+| `player#score` | Invalid |
+| `int` | Invalid |
+| `Hello World` | Invalid |
+| `MAX_SIZE` | Valid |
+| `my,var` | Invalid |
+| `Float` | Valid |
+
+### Important:
+
+C++ is case-sensitive.
+
+- `int` is a reserved keyword.
+- `INT` is a valid identifier.
+- `Float` and `float` are different.
+- Variable names cannot contain spaces.
+
+---

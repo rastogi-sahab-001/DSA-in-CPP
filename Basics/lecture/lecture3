@@ -1,0 +1,503 @@
+// # DSA IN C++
+
+// # LECTURE 03 – INPUT, MODULUS AND TYPECASTING
+
+// ---
+
+// ## 12. INPUT IN C++
+
+// **Definition:** Input means taking data from the user during program execution.
+
+// In C++, `cin` is used to take input from the user.
+
+// **Syntax:**
+
+// ```cpp
+// cin >> variable;
+// ```
+
+// **Example:**
+
+// ```cpp
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int x;
+
+//     cout << "Enter a number: ";
+//     cin >> x;
+
+//     cout << x;
+
+//     return 0;
+// }
+// ```
+
+// **Output:**
+
+// ```text
+// Enter a number: 10
+// 10
+// ```
+
+// **Important:**
+
+// - `cin` – Takes input from the user.
+// - `>>` – Extraction operator.
+// - `cout` – Displays output on the screen.
+// - `<<` – Insertion operator.
+
+// ---
+
+// ## 13. ADDITION OF TWO NUMBERS
+
+// **Definition:** Addition is a mathematical operation used to calculate the sum of two or more numbers.
+
+// **Program:**
+
+// ```cpp
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int a, b;
+
+//     cout << "Enter first number: ";
+//     cin >> a;
+
+//     cout << "Enter second number: ";
+//     cin >> b;
+
+//     cout << "Sum = " << a + b;
+
+//     return 0;
+// }
+// ```
+
+// **Output:**
+
+// ```text
+// Enter first number: 10
+// Enter second number: 20
+// Sum = 30
+// ```
+
+// ---
+
+// ## 14. SIMPLE INTEREST
+
+// **Definition:** Simple Interest is the interest calculated on the principal amount for a specific period at a fixed rate.
+
+// **Formula:**
+
+// $$
+// SI = \frac{P \times R \times T}{100}
+// $$
+
+// **Where:**
+
+// | Symbol | Meaning |
+// |---|---|
+// | P | Principal Amount |
+// | R | Rate of Interest |
+// | T | Time |
+// | SI | Simple Interest |
+
+// **Example:**
+
+// If P = 1000, R = 5% and T = 2 years:
+
+// $$
+// SI = \frac{1000 \times 5 \times 2}{100}
+// $$
+
+// $$
+// SI = 100
+// $$
+
+// ---
+
+// ## 15. MODULUS OPERATOR (%)
+
+// **Definition:** The modulus operator (%) gives the remainder when one number is divided by another number.
+
+// **Example:**
+
+// ```cpp
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int a = 17;
+//     int b = 5;
+
+//     cout << a % b;
+
+//     return 0;
+// }
+// ```
+
+// **Output:**
+
+// ```text
+// 2
+// ```
+
+// **Explanation:**
+
+// 17 divided by 5 gives:
+
+// - Quotient = 3
+// - Remainder = 2
+
+// Therefore:
+
+// $$
+// 17 \% 5 = 2
+// $$
+
+// **Properties of Modulus Operator:**
+
+// 1. If `a < b` for positive integers, then:
+
+//    `a % b = a`
+
+// 2. Negative divisor does not change the remainder:
+
+//    `a % (-b) = a % b`
+
+// 3. If the dividend is negative:
+
+//    `(-a) % b = -(a % b)`
+
+// **Examples:**
+
+// ```cpp
+// 2 % 7 = 2
+// 7 % (-2) = 1
+// (-7) % 3 = -1
+// ```
+
+// ---
+
+// ## 16. CHARACTER DATA TYPE (char)
+
+// **Definition:** The `char` data type is used to store a single character.
+
+// A character is written inside single quotation marks (' ').
+
+// **Example:**
+
+// ```cpp
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     char ch = 'A';
+
+//     cout << ch;
+
+//     return 0;
+// }
+// ```
+
+// **Output:**
+
+// ```text
+// A
+// ```
+
+// **Important:** A `char` variable stores one character at a time.
+
+// ---
+
+// ## 17. ASCII VALUES
+
+// **Definition:** ASCII stands for American Standard Code for Information Interchange.
+
+// It is a character encoding standard that assigns numerical values to characters.
+
+// **Important ASCII Values:**
+
+// | Character | ASCII Value |
+// |:---:|---:|
+// | A | 65 |
+// | B | 66 |
+// | C | 67 |
+// | a | 97 |
+// | b | 98 |
+// | c | 99 |
+// | 0 | 48 |
+// | 1 | 49 |
+// | Z | 90 |
+// | z | 122 |
+
+// **Program to Print ASCII Value:**
+
+// ```cpp
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     char ch;
+
+//     cout << "Enter a character: ";
+//     cin >> ch;
+
+//     cout << "ASCII Value = " << (int)ch;
+
+//     return 0;
+// }
+// ```
+
+// **Output:**
+
+// ```text
+// Enter a character: A
+// ASCII Value = 65
+// ```
+
+// **Explanation:**
+
+// `(int)ch` converts the character into its integer ASCII value.
+
+// ---
+
+// ## 18. TYPECASTING
+
+// **Definition:** Typecasting is the process of converting one data type into another data type.
+
+// **Example:**
+
+// ```cpp
+// double x = 45.89;
+
+// int y = (int)x;
+
+// cout << y;
+// ```
+
+// **Output:**
+
+// ```text
+// 45
+// ```
+
+// **Explanation:**
+
+// The decimal part is removed when a floating-point value is converted to an integer using this cast.
+
+// ### Types of Typecasting
+
+// ### 1. Implicit Typecasting
+
+// **Definition:** Conversion performed automatically by the compiler.
+
+// **Example:**
+
+// ```cpp
+// int a = 10;
+// double b = a;
+
+// cout << b;
+// ```
+
+// **Output:**
+
+// ```text
+// 10
+// ```
+
+// ### 2. Explicit Typecasting
+
+// **Definition:** Conversion performed manually by the programmer.
+
+// **Example:**
+
+// ```cpp
+// double a = 10.75;
+
+// int b = (int)a;
+
+// cout << b;
+// ```
+
+// **Output:**
+
+// ```text
+// 10
+// ```
+
+// ### Difference Between Implicit and Explicit Typecasting
+
+// | Implicit Typecasting | Explicit Typecasting |
+// |---|---|
+// | Automatic conversion | Manual conversion |
+// | Performed by compiler | Performed by programmer |
+// | No cast is written | Cast is written |
+// | Example: `double b = a;` | Example: `int b = (int)a;` |
+
+// ---
+
+// ## 19. BODMAS
+
+// **Definition:** BODMAS defines the order in which mathematical operations are performed in an expression.
+
+// **Full Form:**
+
+// | Letter | Meaning |
+// |:---:|---|
+// | B | Brackets |
+// | O | Orders |
+// | D | Division |
+// | M | Multiplication |
+// | A | Addition |
+// | S | Subtraction |
+
+// **Important Rules:**
+
+// 1. Brackets are evaluated first.
+// 2. Multiplication and division have equal precedence.
+// 3. Addition and subtraction have equal precedence.
+// 4. Operators of equal precedence are generally evaluated from left to right.
+
+// **Example:**
+
+// ```cpp
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int x = 2 + 3 * 4;
+
+//     cout << x;
+
+//     return 0;
+// }
+// ```
+
+// **Output:**
+
+// ```text
+// 14
+// ```
+
+// **Explanation:**
+
+// First multiplication:
+
+// $$
+// 3 \times 4 = 12
+// $$
+
+// Then addition:
+
+// $$
+// 2 + 12 = 14
+// $$
+
+// Therefore, the output is 14.
+
+// ---
+
+// ## 20. INCREMENT AND DECREMENT OPERATORS
+
+// **Definition:** Increment and decrement operators are used to increase or decrease the value of a variable by 1.
+
+// ### A. Increment Operator (++)
+
+// The increment operator increases the value of a variable by 1.
+
+// #### 1. Pre-Increment (++x)
+
+// **Definition:** First increases the value by 1 and then uses the updated value.
+
+// **Example:**
+
+// ```cpp
+// int x = 10;
+
+// cout << ++x;
+// ```
+
+// **Output:**
+
+// ```text
+// 11
+// ```
+
+// #### 2. Post-Increment (x++)
+
+// **Definition:** First uses the current value and then increases it by 1.
+
+// **Example:**
+
+// ```cpp
+// int x = 10;
+
+// cout << x++;
+// ```
+
+// **Output:**
+
+// ```text
+// 10
+// ```
+
+// ### B. Decrement Operator (--)
+
+// The decrement operator decreases the value of a variable by 1.
+
+// #### 1. Pre-Decrement (--x)
+
+// **Definition:** First decreases the value by 1 and then uses the updated value.
+
+// **Example:**
+
+// ```cpp
+// int x = 10;
+
+// cout << --x;
+// ```
+
+// **Output:**
+
+// ```text
+// 9
+// ```
+
+// #### 2. Post-Decrement (x--)
+
+// **Definition:** First uses the current value and then decreases it by 1.
+
+// **Example:**
+
+// ```cpp
+// int x = 10;
+
+// cout << x--;
+// ```
+
+// **Output:**
+
+// ```text
+// 10
+// ```
+
+// ### Difference Between Pre and Post Operators
+
+// | Operator | Meaning | Working |
+// |---|---|---|
+// | `++x` | Pre-Increment | Increase first, then use |
+// | `x++` | Post-Increment | Use first, then increase |
+// | `--x` | Pre-Decrement | Decrease first, then use |
+// | `x--` | Post-Decrement | Use first, then decrease |
+
+// ---

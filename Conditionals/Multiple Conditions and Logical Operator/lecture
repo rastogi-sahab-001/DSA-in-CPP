@@ -1,0 +1,478 @@
+# Lecture 05 – Conditionals
+
+## 1. Range of Data Types
+
+Every data type has a specific range of values that it can store.
+
+A variable can store values only within its allowed range.
+
+### Basic Data Types and Their Sizes
+
+| Data Type | Size | Bits |
+|---|---:|---:|
+| char | 1 byte | 8 bits |
+| short | 2 bytes | 16 bits |
+| int | 4 bytes | 32 bits |
+| long long | 8 bytes | 64 bits |
+| float | 4 bytes | 32 bits |
+| double | 8 bytes | 64 bits |
+| bool | 1 byte | 8 bits |
+
+**Note:** These are commonly used sizes. Actual sizes can depend on the compiler and system.
+
+### Range of int
+
+For a typical 32-bit signed integer:
+
+- Minimum value = -2³¹
+- Maximum value = 2³¹ - 1
+
+Therefore:
+
+`-2³¹ ≤ x ≤ 2³¹ - 1`
+
+### Range of short
+
+For a typical 16-bit signed short:
+
+`-2¹⁵ ≤ x ≤ 2¹⁵ - 1`
+
+### Range of long long
+
+For a typical 64-bit signed long long:
+
+`-2⁶³ ≤ x ≤ 2⁶³ - 1`
+
+### Important Points
+
+- 1 byte = 8 bits.
+- A bit can store either 0 or 1.
+- `double` is generally more precise than `float`.
+- `short`, `int` and `long long` are integer data types.
+
+---
+
+## 2. Multiple Conditions Using Logical Operators
+
+Logical operators are used to combine two or more conditions.
+
+There are three main logical operators in C++.
+
+### A. Logical AND (&&)
+
+AND returns true only when all conditions are true.
+
+| Condition 1 | Condition 2 | Result |
+|---|---|---|
+| True | True | True |
+| True | False | False |
+| False | True | False |
+| False | False | False |
+
+**Example:**
+
+```cpp
+int age = 20;
+
+if (age >= 18 && age <= 60) {
+    cout << "Eligible";
+}
+```
+
+Both conditions must be true.
+
+### B. Logical OR (||)
+
+OR returns true if at least one condition is true.
+
+| Condition 1 | Condition 2 | Result |
+|---|---|---|
+| True | True | True |
+| True | False | True |
+| False | True | True |
+| False | False | False |
+
+**Example:**
+
+```cpp
+int n = 15;
+
+if (n % 5 == 0 || n % 3 == 0) {
+    cout << "Divisible by 5 or 3";
+}
+```
+
+If either condition is true, the statement executes.
+
+### C. Logical NOT (!)
+
+NOT reverses the result of a condition.
+
+| Condition | Result |
+|---|---|
+| True | False |
+| False | True |
+
+**Example:**
+
+```cpp
+int age = 15;
+
+if (!(age >= 18)) {
+    cout << "Not eligible";
+}
+```
+
+---
+
+## 3. Checking Whether a Number Is a Four-Digit Number
+
+A positive number is a four-digit number if it lies between 1000 and 9999.
+
+**Condition:**
+
+`n >= 1000 && n <= 9999`
+
+**Program:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (n >= 1000 && n <= 9999) {
+        cout << "Four Digit Number";
+    }
+    else {
+        cout << "Not a Four Digit Number";
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 4. Checking Whether Magnitude Is Smaller Than 69
+
+Magnitude means the absolute value of a number.
+
+For example:
+- Magnitude of -10 = 10
+- Magnitude of 20 = 20
+
+To check whether magnitude is smaller than 69:
+
+`-69 < n && n < 69`
+
+**Example:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (n > -69 && n < 69) {
+        cout << "Magnitude is smaller than 69";
+    }
+    else {
+        cout << "Magnitude is not smaller than 69";
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 5. Divisibility by 5 or 3
+
+A number is divisible by 5 or 3 if at least one of the conditions is true.
+
+**Condition:**
+
+`n % 5 == 0 || n % 3 == 0`
+
+**Program:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (n % 5 == 0 || n % 3 == 0) {
+        cout << "Divisible by 5 or 3";
+    }
+    else {
+        cout << "Not divisible by 5 or 3";
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 6. Checking Whether Three Numbers Can Form a Triangle
+
+Three positive numbers can form a triangle if the sum of any two sides is greater than the third side.
+
+### Triangle Conditions
+
+1. a + b > c
+2. b + c > a
+3. c + a > b
+
+All three conditions must be true.
+
+**Program:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+
+    cout << "Enter three sides: ";
+    cin >> a >> b >> c;
+
+    if (a + b > c && b + c > a && c + a > b) {
+        cout << "Valid Triangle";
+    }
+    else {
+        cout << "Not a Valid Triangle";
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 7. Checking Capital Alphabet or Not
+
+A capital alphabet lies between A and Z.
+
+In C++, we can compare characters using their ASCII values.
+
+- A = 65
+- Z = 90
+
+**Condition:**
+
+`ch >= 'A' && ch <= 'Z'`
+
+**Program:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+
+    cout << "Enter a character: ";
+    cin >> ch;
+
+    if (ch >= 'A' && ch <= 'Z') {
+        cout << "Capital Alphabet";
+    }
+    else {
+        cout << "Not a Capital Alphabet";
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 8. Finding the Greatest of Three Numbers
+
+We can use an else-if ladder with logical AND to find the greatest number.
+
+**Program:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+
+    cout << "Enter three numbers: ";
+    cin >> a >> b >> c;
+
+    if (a >= b && a >= c) {
+        cout << "Greatest = " << a;
+    }
+    else if (b >= a && b >= c) {
+        cout << "Greatest = " << b;
+    }
+    else {
+        cout << "Greatest = " << c;
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 9. Short-Circuit Evaluation
+
+Short-circuit evaluation means C++ sometimes skips checking the second condition because the result is already determined by the first condition.
+
+There are two cases:
+
+### A. Short-Circuit with AND (&&)
+
+In AND, if the first condition is false, the second condition is not checked.
+
+**Example:**
+
+```cpp
+int a = 0, b = 5;
+
+if (a != 0 && b > 10) {
+    cout << "True";
+}
+```
+
+Here, `a != 0` is false.
+
+Therefore, the second condition is not evaluated.
+
+### B. Short-Circuit with OR (||)
+
+In OR, if the first condition is true, the second condition is not checked.
+
+**Example:**
+
+```cpp
+int a = 10, b = 5;
+
+if (a == 10 || b > 10) {
+    cout << "True";
+}
+```
+
+Here, `a == 10` is true.
+
+Therefore, the second condition is not evaluated.
+
+### Remember
+
+- AND (`&&`): False in the first condition → skips the second condition.
+- OR (`||`): True in the first condition → skips the second condition.
+
+---
+
+## 10. Nested If-Else
+
+Nested if-else means writing one if-else statement inside another if-else statement.
+
+It is useful when we need to check conditions step by step.
+
+**Syntax:**
+
+```cpp
+if (condition1) {
+
+    if (condition2) {
+        // Code
+    }
+    else {
+        // Code
+    }
+
+}
+else {
+    // Code
+}
+```
+
+### Example: Greatest of Three Numbers
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+
+    cout << "Enter three numbers: ";
+    cin >> a >> b >> c;
+
+    if (a >= b) {
+        if (a >= c) {
+            cout << "Greatest = " << a;
+        }
+        else {
+            cout << "Greatest = " << c;
+        }
+    }
+    else {
+        if (b >= c) {
+            cout << "Greatest = " << b;
+        }
+        else {
+            cout << "Greatest = " << c;
+        }
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 11. Homework Questions
+
+1. Take three positive integers as input and print the least of them.
+2. Given a point (x, y), find whether it lies in the:
+   - First Quadrant
+   - Second Quadrant
+   - Third Quadrant
+   - Fourth Quadrant
+   - X-axis
+   - Y-axis
+   - Origin
+3. Take the length and breadth of a rectangle as input and check whether its area is greater than its perimeter.
+
+**Formulas:**
+
+Area = Length × Breadth
+
+Perimeter = 2 × (Length + Breadth)
+
+---
+
+## 12. Important Revision Points
+
+1. `&&` means Logical AND.
+2. `||` means Logical OR.
+3. `!` means Logical NOT.
+4. AND requires all conditions to be true.
+5. OR requires at least one condition to be true.
+6. Short-circuiting can skip the second condition.
+7. Nested if-else means an if-else inside another if-else.
+8. A triangle requires the sum of any two sides to be greater than the third side.
+9. Capital alphabets range from A to Z.
+10. Use logical operators to check multiple conditions.
