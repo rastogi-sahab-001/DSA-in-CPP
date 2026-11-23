@@ -1,0 +1,542 @@
+# Lecture 06 – Conditionals and Loops
+
+## 1. if(a) and if(a = b)
+
+In C++, an `if` statement checks whether a condition is true or false.
+
+- `0` means False.
+- Any non-zero value means True.
+
+### Example 1: if(a)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 0;
+
+    if(a)
+        cout << "Jitendra";
+    else
+        cout << "Anand";
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Anand
+```
+
+**Explanation:**
+Here, `a = 0`, so the condition is false and the else block executes.
+
+### Example 2: Assignment inside if
+
+```cpp
+int a = 5;
+
+if(a = 0)
+    cout << "Jitendra";
+else
+    cout << "Anand";
+```
+
+**Output:**
+```text
+Anand
+```
+
+**Explanation:**
+- `=` is an assignment operator.
+- `a = 0` assigns zero to a.
+- Zero means false, so else executes.
+
+**Important Difference:**
+
+| Expression | Meaning |
+|---|---|
+| `if(a)` | Checks whether a is non-zero |
+| `if(a == 0)` | Checks whether a is equal to zero |
+| `if(a = 0)` | Assigns zero to a and checks the result |
+
+Remember: Use `==` for comparison and `=` for assignment.
+
+---
+
+## 2. Post-Increment Inside If
+
+Post-increment (`x++`) increases the value of a variable by 1 after using its current value.
+
+### Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 4;
+
+    if(x++)
+        cout << x;
+    else
+        cout << "Prem";
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+5
+```
+
+**Explanation:**
+
+1. Initially, `x = 4`.
+2. `x++` uses the old value 4.
+3. Since 4 is non-zero, the condition is true.
+4. Then x becomes 5.
+5. `cout << x` prints 5.
+
+---
+
+## 3. Short-Circuit Evaluation with Post-Increment
+
+Short-circuit evaluation means C++ may skip evaluating the second condition when the result is already determined.
+
+### Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 4, y = 6;
+
+    if(x++ || y++)
+        cout << x << y;
+    else
+        cout << "Ayush";
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+56
+```
+
+**Explanation:**
+
+1. Initially, x = 4 and y = 6.
+2. `x++` evaluates to 4 (true).
+3. x becomes 5.
+4. OR (`||`) already has a true condition.
+5. Therefore, `y++` is not executed.
+6. Output is 56.
+
+**Remember:**
+- AND (`&&`): If the first condition is false, the second is skipped.
+- OR (`||`): If the first condition is true, the second is skipped.
+
+---
+
+## 4. Ternary Operator
+
+The ternary operator is a short alternative to if-else.
+
+It uses three operands:
+1. Condition
+2. True expression
+3. False expression
+
+**Syntax:**
+
+```cpp
+condition ? expression1 : expression2;
+```
+
+- If the condition is true, expression1 executes.
+- If the condition is false, expression2 executes.
+
+### Example: Odd or Even
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    (n % 2 == 0) ? cout << "Even" : cout << "Odd";
+
+    return 0;
+}
+```
+
+**Example:**
+- Input: 8 → Even
+- Input: 5 → Odd
+
+### Ternary vs If-Else
+
+**Using If-Else:**
+```cpp
+if(n % 2 == 0)
+    cout << "Even";
+else
+    cout << "Odd";
+```
+
+**Using Ternary:**
+```cpp
+(n % 2 == 0) ? cout << "Even" : cout << "Odd";
+```
+
+Both produce the same result.
+
+---
+
+## 5. Switch Case
+
+Switch case is an alternative to an if-else ladder when we need to select one option from multiple choices.
+
+**Syntax:**
+
+```cpp
+switch(expression) {
+
+    case 1:
+        // Code
+        break;
+
+    case 2:
+        // Code
+        break;
+
+    default:
+        // Default code
+}
+```
+
+### Important Keywords
+
+- `switch`: Checks the given expression.
+- `case`: Defines a possible value.
+- `break`: Terminates the switch block.
+- `default`: Executes when no case matches.
+
+### Example: Day of the Week
+
+Take a number from 1 to 7 and print the corresponding day.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int day;
+
+    cout << "Enter day number (1-7): ";
+    cin >> day;
+
+    switch(day) {
+        case 1:
+            cout << "Monday";
+            break;
+
+        case 2:
+            cout << "Tuesday";
+            break;
+
+        case 3:
+            cout << "Wednesday";
+            break;
+
+        case 4:
+            cout << "Thursday";
+            break;
+
+        case 5:
+            cout << "Friday";
+            break;
+
+        case 6:
+            cout << "Saturday";
+            break;
+
+        case 7:
+            cout << "Sunday";
+            break;
+
+        default:
+            cout << "Invalid Day";
+    }
+
+    return 0;
+}
+```
+
+**Example:**
+- Input: 1 → Monday
+- Input: 5 → Friday
+- Input: 8 → Invalid Day
+
+---
+
+# LOOPS
+
+## 6. Introduction to Loops
+
+A loop is used to execute a block of code repeatedly.
+
+Instead of writing the same statement multiple times, we can use a loop.
+
+### Types of Loops in C++
+
+1. For Loop
+2. While Loop
+3. Do-While Loop
+
+---
+
+## 7. For Loop
+
+A for loop is used when we want to repeat a block of code.
+
+**Syntax:**
+
+```cpp
+for(initialization; condition; increment) {
+    // Code to execute
+}
+```
+
+### Three Main Parts
+
+| Part | Meaning |
+|---|---|
+| Initialization | Initializes the variable |
+| Condition | Checks whether the loop should continue |
+| Increment | Updates the variable |
+
+### Example 1: Print Hello 3 Times
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    for(int i = 1; i <= 3; i++) {
+        cout << "Hello" << endl;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Hello
+Hello
+Hello
+```
+
+### Explanation
+
+- `int i = 1` → Initialization
+- `i <= 3` → Condition
+- `i++` → Increment
+- `cout << "Hello"` → Loop body
+
+### How For Loop Works
+
+1. Initialization executes only once.
+2. Condition is checked.
+3. If true, the loop body executes.
+4. Increment executes.
+5. Condition is checked again.
+6. The process continues until the condition becomes false.
+
+### Example 2: Print Hello from a to b
+
+```cpp
+for(int i = a; i <= b; i++) {
+    cout << "Hello PW" << endl;
+}
+```
+
+If a = 2 and b = 5, the loop executes 4 times.
+
+**Formula:**
+
+Number of iterations = b - a + 1
+
+---
+
+## 8. Print Good Morning 10 Times
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    for(int i = 1; i <= 10; i++) {
+        cout << "Good Morning" << endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 9. Print a Message n Times
+
+Take n as input from the user and print a message n times.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter n: ";
+    cin >> n;
+
+    for(int i = 1; i <= n; i++) {
+        cout << "Hello PW" << endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 10. Print Numbers from 1 to 100
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    for(int i = 1; i <= 100; i++) {
+        cout << i << endl;
+    }
+
+    return 0;
+}
+```
+
+**Output starts:**
+```text
+1
+2
+3
+4
+5
+...
+100
+```
+
+---
+
+## 11. Print Even Numbers from 1 to 100
+
+An even number is completely divisible by 2.
+
+Condition: `i % 2 == 0`
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    for(int i = 1; i <= 100; i++) {
+
+        if(i % 2 == 0) {
+            cout << i << endl;
+        }
+
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+2
+4
+6
+8
+10
+...
+100
+```
+
+---
+
+## 12. Print Odd Numbers Divisible by 3 from 1 to 100
+
+An odd number is not completely divisible by 2.
+
+A number divisible by 3 has remainder zero when divided by 3.
+
+**Conditions:**
+- `i % 2 != 0`
+- `i % 3 == 0`
+
+Both conditions must be true.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    for(int i = 1; i <= 100; i++) {
+
+        if(i % 2 != 0 && i % 3 == 0) {
+            cout << i << endl;
+        }
+
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+3
+9
+15
+21
+27
+33
+39
+45
+51
+57
+63
+69
+75
+81
+87
+93
+99
+```
