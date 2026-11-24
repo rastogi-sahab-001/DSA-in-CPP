@@ -5,13 +5,17 @@ int main()
     int number;
     cout << "Enter a Number: ";
     cin >> number;
-    if (number % 2 == 0)
+    if (number > 0)
     {
-        cout << "Number is even";
+        cout << "Number is Positive" << endl;
+    }
+    else if (number < 0)
+    {
+        cout << "Number is Negative" << endl;
     }
     else
     {
-        cout << "Number is odd";
+        cout << "Number is Zero" << endl;
     }
     return 0;
 }
